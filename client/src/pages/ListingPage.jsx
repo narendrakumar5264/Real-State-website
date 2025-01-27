@@ -15,7 +15,16 @@ import {
   FaStar,
   FaPhoneAlt,
   FaEnvelope,
+  FaStarHalf,
+  FaStarHalfAlt,
+  FaWhatsapp,
+  FaCarAlt,
+  FaCheckCircle,
+  FaShieldAlt,
+  FaTree,
+  FaHome,
 } from 'react-icons/fa';
+
 
 export default function Listing() {
   SwiperCore.use([Navigation]);
@@ -55,13 +64,14 @@ export default function Listing() {
         <p className='text-center my-7 text-2xl text-red-600 font-medium'>Something went wrong!</p>
       )}
       {listing && !loading && !error && (
-        <div className="container mx-auto px-6 py-12">
+        <div className="container mx-auto px-6 py-10 md:py-0 md:m-3">
           <div className="relative">
             <Swiper navigation loop autoplay={{ delay: 4000 }} className="rounded-lg shadow-xl">
               {listing.imageUrls.map((url) => (
                 <SwiperSlide key={url}>
                   <div
-                    className="h-[500px] md:h-[600px] rounded-lg shadow-lg overflow-hidden transition-transform duration-700 ease-in-out transform hover:scale-105"
+                    className="h-[400px] md:h-[400px]  rounded-lg shadow-lg overflow-hidden transition-transform duration-700 
+                    ease-in-out transform hover:scale-105"
                     style={{
                       background: `url(${url}) center no-repeat`,
                       backgroundSize: 'cover',
@@ -92,75 +102,146 @@ export default function Listing() {
           </div>
 
           <div className="flex flex-wrap justify-between items-start gap-8 mt-8">
-            <div className="bg-white p-8 rounded-lg shadow-lg flex-1">
-              <p className="text-4xl font-semibold text-gray-900">{listing.name}</p>
-              <div className="flex items-center mt-2">
-                <p className="text-lg font-medium text-gray-600">
-                  <FaMapMarkerAlt className="inline-block text-green-700 mr-2" />
-                  {listing.address}
-                </p>
-              </div>
+          <div className="bg-white p-8 rounded-lg shadow-lg flex-1 relative">
+  {/* Property Name */}
+  <p className="text-4xl font-semibold text-gray-900">{listing.name}</p>
 
-              <div className="flex items-center mt-4 gap-6">
-                <p className="bg-red-600 text-white px-5 py-3 rounded-md uppercase font-medium text-sm tracking-wider">
-                  {listing.type === 'rent' ? 'For Rent' : 'For Sale'}
-                </p>
-                {listing.offer && (
-                  <p className="bg-green-600 text-white px-5 py-3 rounded-md uppercase font-medium text-sm tracking-wider">
-                    ${+listing.regularPrice - +listing.discountPrice} OFF
-                  </p>
-                )}
-              </div>
+  {/* Location */}
+  <div className="flex items-center mt-2">
+    <p className="text-lg font-medium text-gray-600 flex items-center">
+      <FaMapMarkerAlt className="inline-block text-green-700 mr-2" />
+      {listing.address}
+    </p>
+  </div>
 
-              <p className="text-3xl text-gray-900 font-bold mt-6">
-                ${' '}
-                {listing.offer
-                  ? listing.discountPrice.toLocaleString('en-US')
-                  : listing.regularPrice.toLocaleString('en-US')}
-                {listing.type === 'rent' && ' / month'}
-              </p>
+  {/* Status and Offer */}
+  <div className="flex items-center mt-4 gap-6">
+    <p className="bg-red-600 text-white px-5 py-3 rounded-md uppercase font-medium text-sm tracking-wider">
+      {listing.type === 'rent' ? 'For Rent' : 'For Sale'}
+    </p>
+    {listing.offer && (
+      <p className="bg-green-600 text-white px-5 py-3 rounded-md uppercase font-medium text-sm tracking-wider">
+        Save ${(+listing.regularPrice - +listing.discountPrice).toLocaleString('en-US')}
+      </p>
+    )}
+  </div>
 
-              <p className="mt-6 text-gray-800 text-lg font-light">
-                <span className="font-semibold text-gray-900">Description:</span> {listing.description}
-              </p>
+  {/* Pricing */}
+  <p className="text-3xl text-gray-900 font-bold mt-6">
+    ${' '}
+    {listing.offer
+      ? listing.discountPrice.toLocaleString('en-US')
+      : listing.regularPrice.toLocaleString('en-US')}
+    {listing.type === 'rent' && ' / month'}
+  </p>
 
-              <ul className="grid grid-cols-2 gap-8 mt-6 text-gray-600">
-                <li className="flex items-center">
-                  <FaBed className="text-green-700 text-xl mr-3" />
-                  {listing.bedrooms} {listing.bedrooms > 1 ? 'Beds' : 'Bed'}
-                </li>
-                <li className="flex items-center">
-                  <FaBath className="text-green-700 text-xl mr-3" />
-                  {listing.bathrooms} {listing.bathrooms > 1 ? 'Baths' : 'Bath'}
-                </li>
-                <li className="flex items-center">
-                  <FaParking className="text-green-700 text-xl mr-3" />
-                  {listing.parking ? 'Parking Available' : 'No Parking'}
-                </li>
-                <li className="flex items-center">
-                  <FaChair className="text-green-700 text-xl mr-3" />
-                  {listing.furnished ? 'Furnished' : 'Unfurnished'}
-                </li>
-              </ul>
-            </div>
+  {/* Description */}
+  <p className="mt-6 text-gray-800 text-lg font-light leading-relaxed">
+    <span className="font-semibold text-gray-900">Description:</span> {listing.description}
+  </p>
 
-            <div className="w-full md:w-1/3 bg-gray-50 p-8 rounded-lg shadow-lg">
-              <p className="text-2xl font-semibold text-gray-900">Why you should consider this property:</p>
-              <ul className="mt-4 text-gray-600 list-disc pl-6 space-y-2">
-                <li>Ample parking space</li>
-                <li>RERA registered project</li>
-                <li>Ready to move in</li>
-              </ul>
+  {/* Features List */}
+  <ul className="grid grid-cols-2 gap-8 mt-6 text-gray-600">
+    <li className="flex items-center">
+      <FaBed className="text-green-700 text-xl mr-3" />
+      {listing.bedrooms} {listing.bedrooms > 1 ? 'Beds' : 'Bed'}
+    </li>
+    <li className="flex items-center">
+      <FaBath className="text-green-700 text-xl mr-3" />
+      {listing.bathrooms} {listing.bathrooms > 1 ? 'Baths' : 'Bath'}
+    </li>
+    <li className="flex items-center">
+      <FaParking className="text-green-700 text-xl mr-3" />
+      {listing.parking ? 'Parking Available' : 'No Parking'}
+    </li>
+    <li className="flex items-center">
+      <FaChair className="text-green-700 text-xl mr-3" />
+      {listing.furnished ? 'Furnished' : 'Unfurnished'}
+    </li>
+  </ul>
 
-              <div className="mt-8">
-                <button className="w-full bg-blue-600 text-white px-6 py-3 rounded-md text-center uppercase font-medium hover:bg-blue-700 transition duration-300">
-                  <FaPhoneAlt className="inline-block mr-2" /> {listing.mobileNumber}
-                </button>
-                <button className="w-full bg-gray-600 text-white px-6 py-3 mt-4 rounded-md text-center uppercase font-medium hover:bg-gray-700 transition duration-300">
-                  <FaEnvelope className="inline-block mr-2" /> Email Builder
-                </button>
-              </div>
-            </div>
+  {/* Ratings */}
+  <div className="mt-8 flex items-center">
+    <div className="flex items-center text-yellow-500 text-lg font-medium">
+      <FaStar />
+      <FaStar />
+      <FaStar />
+      <FaStar />
+      <FaStarHalfAlt />
+      <span className="ml-2 text-gray-700">(4.5/5)</span>
+    </div>
+    <p className="ml-4 text-gray-600">Rated by 250+ happy clients</p>
+  </div>
+
+  {/* Additional Notes */}
+  <div className="mt-6 p-4 bg-gray-50 border border-gray-200 rounded-lg text-gray-700">
+    <p className="font-medium">
+      Interested? Contact us to book a tour or get more details about this property. Don't miss the chance to make it yours!
+    </p>
+    <p className="mt-2">
+      <span className="font-semibold">Special Offer:</span> Get exclusive discounts if booked this month.
+    </p>
+  </div>
+</div>
+
+
+<div className="w-full md:w-1/3 bg-white p-8 rounded-lg shadow-lg">
+  {/* Header */}
+  <p className="text-2xl font-semibold text-gray-900">
+    Why You Should Consider This Property:
+  </p>
+
+  {/* Benefits List */}
+  <ul className="mt-4 text-gray-600 list-disc pl-6 space-y-2">
+    <li className="flex items-center">
+      <FaCarAlt className="text-green-700 text-xl mr-3" />
+      Ample parking space
+    </li>
+    <li className="flex items-center">
+      <FaCheckCircle className="text-blue-600 text-xl mr-3" />
+      RERA registered project
+    </li>
+    <li className="flex items-center">
+      <FaHome className="text-yellow-500 text-xl mr-3" />
+      Ready to move in
+    </li>
+    <li className="flex items-center">
+      <FaShieldAlt className="text-purple-700 text-xl mr-3" />
+      Gated and secure community
+    </li>
+    <li className="flex items-center">
+      <FaTree className="text-green-600 text-xl mr-3" />
+      Lush green surroundings
+    </li>
+  </ul>
+
+  {/* Contact Details */}
+  <div className="mt-8">
+    <p className="text-lg font-medium text-gray-800 mb-4">
+      <span className="font-semibold text-gray-900">Owner: </span> {listing.ownerName}
+    </p>
+    <button className="w-full bg-blue-600 text-white px-6 py-3 rounded-md text-center uppercase font-medium flex items-center justify-center hover:bg-blue-700 transition duration-300">
+      <FaPhoneAlt className="inline-block mr-2" />
+       {listing.mobileNumber}
+    </button>
+    <button className="w-full bg-gray-600 text-white px-6 py-3 mt-4 rounded-md text-center uppercase font-medium flex items-center justify-center hover:bg-gray-700 transition duration-300">
+      <FaEnvelope className="inline-block mr-2" />
+       {currentUser.email}
+    </button>
+    <button className="w-full bg-green-600 text-white px-6 py-3 mt-4 rounded-md text-center uppercase font-medium flex items-center justify-center hover:bg-green-700 transition duration-300">
+      <FaWhatsapp className="inline-block mr-2" />
+      Chat on WhatsApp
+    </button>
+  </div>
+
+  {/* Extra Note */}
+  <div className="mt-6 p-4 bg-gray-50 border border-gray-200 rounded-lg text-gray-700">
+    <p className="font-medium">
+      Interested? Schedule a visit or contact the owner today to learn more about this property!
+    </p>
+  </div>
+</div>
+
           </div>
 
           <div className="mt-12">
