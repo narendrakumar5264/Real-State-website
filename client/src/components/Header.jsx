@@ -46,30 +46,31 @@ export default function Header() {
   }, [menuOpen]);
 
   return (
-    <header className="bg-white shadow-md md:m-4 md:ml-8 md:mr-8">
+    <header className="bg-slate-500  backdrop-blur-6xl shadow-lg md:rounded-full md:m-4 md:ml-8 md:mr-8">
       <div className="flex justify-between items-center max-w-6xl mx-auto md:p-1 p-3">
         <Link to="/">
           <h1 className='font-bold text-2xl flex flex-wrap'>
-            <span className='text-slate-500'>NK</span>
+            <span className='text-white'>NK</span>
             <span className='text-slate-700'>Estate</span>
           </h1>
         </Link>
 
+
         <ul className="flex gap-6 items-center">
           <Link to="/">
-            <li className="hidden sm:inline text-slate-700 relative group">
+            <li className="hidden sm:inline text-white relative group">
               <span className="group-hover:text-blue-500 transition-colors">Home</span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
             </li>
           </Link>
           <Link to="/about">
-            <li className="hidden sm:inline text-slate-700 relative group">
+            <li className="hidden sm:inline text-white relative group">
               <span className="group-hover:text-blue-500 transition-colors">About</span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
             </li>
           </Link>
           <Link to="/listing">
-            <li className="hidden sm:inline text-slate-700 relative group">
+            <li className="hidden sm:inline text-white relative group">
               <span className="group-hover:text-blue-500 transition-colors">Listings</span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
             </li>
@@ -78,7 +79,7 @@ export default function Header() {
 
         <ul className="flex gap-4 md:gap-9 items-center">
           <Link to='/create-listing'>
-            <button className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-5 py-2 rounded-lg shadow-md hover:from-blue-600 hover:to-indigo-600 transition-transform duration-300 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+            <button className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-7 py-1 rounded-lg shadow-md hover:from-blue-600 hover:to-indigo-600 transition-transform duration-300 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
               Sell/Rent
             </button>
           </Link>
@@ -95,7 +96,7 @@ export default function Header() {
                 </div>
 
                 {menuOpen && (
-                  <div className="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-xl border animate-slide-down">
+                  <div className="absolute right-0 mt-2 z-30 w-56 bg-white rounded-lg shadow-xl border animate-slide-down">
                     <ul className="text-gray-700">
                       <li className="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 transition">
                         <FaUserEdit className="text-blue-500" />
