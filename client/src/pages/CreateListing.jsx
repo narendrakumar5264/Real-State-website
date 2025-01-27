@@ -284,26 +284,40 @@ export default function CreateListing() {
                 value={formData.description}
               />
               <div className="flex flex-wrap gap-3">
-                <label className={`cursor-pointer px-6 py-2 rounded-lg ${formData.type === 'sale' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}>
-                  Sell
-                  <input
-                    type="checkbox"
-                    id="sale"
-                    className="hidden"
-                    onChange={handleChange}
-                    checked={formData.type === 'sale'}
-                  />
-                </label>
-                <label className={`cursor-pointer px-6 py-2 rounded-lg ${formData.type === 'rent' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}>
-                  Rent
-                  <input
-                    type="checkbox"
-                    id="rent"
-                    className="hidden"
-                    onChange={handleChange}
-                    checked={formData.type === 'rent'}
-                  />
-                </label>
+              <label
+  className={`cursor-pointer px-6 py-2 rounded-lg ${
+    formData.type === 'sale' ? 'bg-blue-500 text-white' : 'bg-gray-200'
+  }`}
+>
+  Sell
+  <input
+    type="radio"
+    id="type"
+    name="type"
+    className="hidden"
+    value="sale"
+    onChange={handleChange}
+    checked={formData.type === 'sale'}
+  />
+</label>
+<label
+  className={`cursor-pointer px-6 py-2 rounded-lg ${
+    formData.type === 'rent' ? 'bg-blue-500 text-white' : 'bg-gray-200'
+  }`}
+>
+  Rent
+  <input
+    type="radio"
+    id="type"
+    name="type"
+    className="hidden"
+    value="rent"
+    onChange={handleChange}
+    checked={formData.type === 'rent'}
+  />
+</label>
+
+
                 <label className={`cursor-pointer px-6 py-2 rounded-lg ${formData.parking ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}>
                   Parking Spot
                   <input
