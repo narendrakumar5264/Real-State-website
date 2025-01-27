@@ -46,8 +46,8 @@ export default function Header() {
   }, [menuOpen]);
 
   return (
-    <header className="bg-slate-500  backdrop-blur-6xl shadow-lg md:rounded-full md:m-4 md:ml-8 md:mr-8">
-      <div className="flex justify-between items-center max-w-6xl mx-auto md:p-1 p-3">
+    <header className="bg-slate-500  backdrop-blur-6xl shadow-md shadow-sky-100 md:rounded-lg md:m-4 md:ml-8 md:mr-8">
+      <div className="flex justify-between items-center max-w-6xl mx-auto md:p-3 p-3">
         <Link to="/">
           <h1 className='font-bold text-2xl flex flex-wrap'>
             <span className='text-white'>NK</span>
@@ -77,7 +77,7 @@ export default function Header() {
           </Link>
         </ul>
 
-        <ul className="flex gap-4 md:gap-9 items-center">
+        <ul className="flex gap-4 md:gap-8 items-center ">
           <Link to='/create-listing'>
             <button className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-7 py-1 rounded-lg shadow-md hover:from-blue-600 hover:to-indigo-600 transition-transform duration-300 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
               Sell/Rent
@@ -88,11 +88,11 @@ export default function Header() {
               <>
                 <div onClick={toggleMenu} className="cursor-pointer flex items-center gap-2">
                   <img
-                    className="rounded-full h-10 w-10 object-cover border-2 border-blue-500 hover:border-blue-700 transition"
+                    className="rounded-full h-8 w-8 object-cover border-2 border-blue-500 hover:border-blue-700 transition"
                     src={currentUser.avatar}
                     alt="profile"
                   />
-                  <FaBars className="text-slate-700 text-lg hover:text-blue-500 transition-colors" />
+                 
                 </div>
 
                 {menuOpen && (
