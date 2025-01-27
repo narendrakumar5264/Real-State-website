@@ -100,7 +100,9 @@ export default function Listings() {
         {loading ? (
           <p className="text-center text-gray-600 text-lg animate-pulse">Loading...</p>
         ) : error ? (
-          <p className="text-red-500 text-center text-lg">Failed to load listings.</p>
+          <p className="text-red-600 text-center text-lg font-semibold bg-red-100 p-3 rounded-md shadow-md">
+          Failed to load listings. Please try to re-login.
+        </p>
         ) : userListings.length === 0 ? (
           <p className="text-center text-gray-600 text-lg">No listings found. Add a new listing to get started!</p>
         ) : (
