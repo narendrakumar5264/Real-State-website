@@ -2,23 +2,23 @@ import User from "../models/user.model.js";
 import bcryptjs from "bcryptjs";
 import { errorHandler } from "../utils/error.js";
 import jwt from "jsonwebtoken";
- 
+import {sendWelcomeEmail} from "../Email/emailService.js";
 
-export const signup = async(req, res ,next) => {
-   
- const { username, email, password } = req.body;
- const hashedPassword  = bcryptjs.hashSync(password, 10);
- const newUser = new User({username, email, password : hashedPassword});
 
-          // saving the user data and throwing the error
- try{
-       await newUser.save();
-       res.status(201).json('User created successfully');
- }
- catch(err){
+
+export const signup = async (req, res, next) => {
+  const { username, email, password } = req.body;
+  const hashedPassword = bcryptjs.hashSync(password, 10);
+  const newUser = new User({ username, email, password: hashedPassword });
+
+  try {
+    await newUser.save();
+    await sendWelcomeEmail(email, username);  // Corrected usage
+
+    res.status(201).json({ message: 'User created and welcome email sent.' });
+  } catch (err) {
     next(err);
- }
-
+  }
 };
 
               // Sign In
