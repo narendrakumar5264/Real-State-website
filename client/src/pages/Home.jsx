@@ -8,7 +8,9 @@ import 'swiper/css/bundle';
 import ListingItem from '../components/ListingItem.jsx';
 import Header from '../components/Header.jsx';
 import background from '../assets/background.jpg';
+import { FaUserFriends, FaHome } from "react-icons/fa";
 
+import yourGif from '../assets/gif2.gif';
 export default function Home() {
   const [offerListings, setOfferListings] = useState([]);
   const [saleListings, setSaleListings] = useState([]);
@@ -212,26 +214,42 @@ const showcities = [
 
       </div>
 
-      <div className='flex flex-col gap-7 p-28 px-3 py-4 max-w-6xl mx-auto'>
-      <h2 className="text-slate-800 font-semibold text-2xl lg:text-6xl leading-tight text-center lg:text-left">
-    Find your next <span className="text-blue-600">perfect</span>
-    <br />
-    place with ease
-  </h2>
-  <p className="text-gray-500 text-sm sm:text-base text-center lg:text-left">
-   NKEstate is your trusted platform to discover your next dream home.
-    <br />
-    Browse through an extensive collection of properties tailored just for you.
-  </p>
-  <div className="flex justify-center lg:justify-start">
-    <Link
-      to={'/search'}
-      className="text-sm sm:text-base text-black  font-bold px-6 py-3  transition-all duration-300"
-    >
-      Let’s get started...
-    </Link>
+      
+      <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-20 p-10 max-w-6xl mx-auto">
+  {/* Left Section - Text Content */}
+  <div className="flex-1 text-center lg:text-left">
+    <h2 className="text-slate-800 font-semibold text-2xl lg:text-6xl leading-tight">
+      Find your next <span className="text-blue-600">perfect</span>
+      <br />
+      place with ease
+    </h2>
+    <p className="text-gray-900 text-sm sm:text-base mt-4">
+      NKEstate is your trusted platform to discover your next dream home.
+      <br />
+      Browse through an extensive collection of properties tailored just for you.
+    </p>
+    <div className="mt-6">
+      <Link
+        to={'/search'}
+        className="text-sm sm:text-base text-blue-600 rounded-lg transition-all duration-300"
+      >
+        Let’s get started...
+      </Link>
+    </div>
   </div>
-      </div>
+
+  {/* Right Section - GIF */}
+  <div className="flex-1 flex justify-center lg:justify-end">
+    <img
+      src={yourGif} // Replace `yourGif` with the imported GIF variable
+      alt="Real Estate GIF"
+      className="w-auto max-w-lg mx-auto lg:ml-9 rounded-lg shadow-sm"
+    />
+  </div>
+</div>
+
+
+
 
 
       
@@ -277,7 +295,7 @@ const showcities = [
     
 
       {/* listing results for offer, sale, and rent */}
-      <div className='max-w-7xl md:mx-16 p-1 flex flex-col gap-8 my-10 md:grid'>
+      <div className='max-w-7xl md:mx-16 p-1 flex flex-col gap-8 my-10 md:grid ml-5'>
   {offerListings && offerListings.length > 0 && (
     <div className=''>
       <div className='my-3'>
@@ -331,12 +349,44 @@ const showcities = [
   )}
 </div>
 <div className="max-w-7xl mx-auto px-6 py-12">
-      <h2 className="text-3xl font-bold text-slate-800 text-center mb-6">About Us</h2>
-      <p className="text-gray-600 text-center max-w-3xl mx-auto leading-relaxed">
-        NKEstate is dedicated to helping you find your perfect home. With an extensive network of properties across cities,
-        we bring you closer to your dream residence. Whether you're looking for luxury, affordability, or a cozy space,
-        we have something for everyone. Trust us to make your property search seamless and enjoyable.
-      </p>
+      {/* Title */}
+      <h2 className="text-4xl font-extrabold text-slate-800 text-center mb-8">
+        About Us
+      </h2>
+
+      {/* Description */}
+      <div className="text-center max-w-3xl mx-auto mb-12">
+        <p className="text-gray-600 leading-relaxed text-lg">
+          <span className="font-medium text-slate-800">NKEstate</span> is dedicated to helping you find your perfect home. With an extensive network of properties across cities, we bring you closer to your dream residence. Whether you're looking for luxury, affordability, or a cozy space, we have something for everyone. Trust us to make your property search seamless and enjoyable.
+        </p>
+      </div>
+
+      {/* Stats Section */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+        {/* Number of Users */}
+        <div className="flex flex-col items-center">
+          <div className="bg-blue-100 text-blue-600 p-6 rounded-full shadow-lg relative">
+            <FaUserFriends size={50} />
+            <div className="absolute -top-3 -right-3 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded-full shadow">
+              New
+            </div>
+          </div>
+          <h3 className="text-3xl font-bold text-slate-800 mt-4">50K+</h3>
+          <p className="text-gray-600 text-lg">Happy Users</p>
+        </div>
+
+        {/* Number of Properties */}
+        <div className="flex flex-col items-center">
+          <div className="bg-green-100 text-green-600 p-6 rounded-full shadow-lg relative">
+            <FaHome size={50} />
+            <div className="absolute -top-3 -right-3 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded-full shadow">
+              Popular
+            </div>
+          </div>
+          <h3 className="text-3xl font-bold text-slate-800 mt-4">10K+</h3>
+          <p className="text-gray-600 text-lg">Properties Listed</p>
+        </div>
+      </div>
     </div>
 
     {/* Footer */}
@@ -353,21 +403,21 @@ const showcities = [
           <ul className="text-sm text-gray-400">
             <li><Link to="/search" className="hover:underline">Search Properties</Link></li>
             <li><Link to="/about" className="hover:underline">About Us</Link></li>
-            <li><Link to="/contact" className="hover:underline">Contact</Link></li>
+            <li><Link to="/" className="hover:underline">Home</Link></li>
           </ul>
         </div>
         <div>
           <h3 className="text-lg font-bold mb-4">Cities</h3>
           <ul className="text-sm text-gray-400">
-            {showcities.slice(0, 5).map((city, index) => (
+            {showcities.slice(0, 8).map((city, index) => (
               <li key={index} className="hover:underline">{city.name}</li>
             ))}
           </ul>
         </div>
         <div>
           <h3 className="text-lg font-bold mb-4">Contact Us</h3>
-          <p className="text-sm text-gray-400">Email: support@nkestate.com</p>
-          <p className="text-sm text-gray-400">Phone: +91 12345 67890</p>
+          <p className="text-sm text-gray-400">Email: jangidnarendra858@gmail.com</p>
+          <p className="text-sm text-gray-400">Phone: 9875709813</p>
           <p className="text-sm text-gray-400">Address: Jaipur, Rajasthan, India</p>
         </div>
       </div>
