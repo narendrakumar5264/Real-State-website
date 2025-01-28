@@ -313,7 +313,7 @@ const showcities = [
     </div>
   )}
   </div>
-  <div className='max-w-1xl  md:mx-0 p-2 flex flex-col gap-8  md:grid ml-0 bg-white'>
+  <div className='max-w-1xl  md:mx-0 p-2 flex flex-col gap-8  md:grid ml-0 bg-violet-50'>
   {rentListings && rentListings.length > 0 && (
     <div className='mx-5 md:mx-16 my-10 '>
       <div className='my-3'>
@@ -333,7 +333,7 @@ const showcities = [
   )}
   </div>
 
-<div className='max-w-1xl  md:mx-0 p-2 flex flex-col gap-8  md:grid ml-0 bg-gray-200'>
+<div className='max-w-1xl  md:mx-0 p-2 flex flex-col gap-8  md:grid ml-0 bg-gray-300'>
   {saleListings && saleListings.length > 0 && (
     <div className=' mx-5 md:mx-16 my-10'>
       <div className=''>
