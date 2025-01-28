@@ -224,10 +224,8 @@ export default function Listing() {
       <FaPhoneAlt className="inline-block mr-2" />
        {listing.mobileNumber}
     </button>
-    <button className="w-full bg-gray-600 text-white px-6 py-3 mt-4 rounded-md text-center uppercase font-medium flex items-center justify-center hover:bg-gray-700 transition duration-300">
-      <FaEnvelope className="inline-block mr-2" />
-       {currentUser.email}
-    </button>
+ 
+
     <button className="w-full bg-green-600 text-white px-6 py-3 mt-4 rounded-md text-center uppercase font-medium flex items-center justify-center hover:bg-green-700 transition duration-300">
       <FaWhatsapp className="inline-block mr-2" />
       Chat on WhatsApp
