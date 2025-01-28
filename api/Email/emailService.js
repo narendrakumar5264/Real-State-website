@@ -80,7 +80,7 @@ export const sendWelcomeEmail = (email, username) => {
               <div class="footer">
                 <p>Best regards,</p>
                 <p><strong>NKEstate Team(Narendra Kumar)</strong></p>
-                <p>Contact us: <a href="mailto:support@realestate.com">support@realestate.com</a></p>
+                <p>Contact us: <a href="mailto:jangidnarendra858@gmail.com">jangidnarendra858@gmail.com</a></p>
               </div>
             </div>
           </body>
@@ -96,5 +96,4 @@ export const sendWelcomeEmail = (email, username) => {
     }
   });
 };
-
 
