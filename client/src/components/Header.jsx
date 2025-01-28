@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { FaSearch, FaBars, FaUserEdit, FaListAlt, FaPhone, FaSignOutAlt, FaInfoCircle } from 'react-icons/fa';
+import {
+  FaBars,
+  FaUserEdit,
+  FaListAlt,
+  FaSignOutAlt, FaInfoCircle ,
+} from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-
 import {
   deleteUserFailure,
   deleteUserSuccess,
@@ -12,9 +16,11 @@ import {
 export default function Header() {
   const { currentUser } = useSelector((state) => state.user);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const dispatch = useDispatch();
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
+  const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 
   const handleSignOut = async () => {
     try {
@@ -27,7 +33,7 @@ export default function Header() {
       }
       dispatch(deleteUserSuccess(data));
     } catch (error) {
-      dispatch(deleteUserFailure(data.message));
+      dispatch(deleteUserFailure(error.message));
     }
   };
 
@@ -47,16 +53,14 @@ export default function Header() {
 
   return (
     <header className="bg-white shadow-md fixed top-0 left-0 w-full z-50">
-      <div className="container mx-auto px-8 py-3 flex justify-between items-center">
-        <Link to="/">
-          <h1 className='font-bold text-2xl flex flex-wrap'>
-            <span className='text-blue-700'>NK</span>
-            <span className='text-slate-700'>Estate</span>
-          </h1>
+      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+        {/* Logo */}
+        <Link to="/" className="text-2xl font-bold text-blue-600">
+          <span className='text-slate-800'>NK</span>Estate
         </Link>
 
-
-        <nav className="hidden md:flex items-center gap-10">
+        {/* Centered Navigation Links */}
+        <nav className="hidden md:flex items-center gap-8">
           <Link to="/" className="text-gray-700 hover:text-blue-500 transition">
             Home
           </Link>
@@ -68,57 +72,78 @@ export default function Header() {
           </Link>
         </nav>
 
-        <ul className="flex gap-4 md:gap-8 items-center ">
-          <Link to='/create-listing'>
-            <button className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-7 py-1 rounded-lg shadow-md hover:from-blue-600 hover:to-indigo-600 transition-transform duration-300 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+        {/* Right Section */}
+        <div className="flex items-center gap-4">
+          <Link to="/create-listing">
+            <button className="bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-blue-600 transition">
               Sell/Rent
             </button>
           </Link>
-          <div className="relative">
-            {currentUser ? (
-              <>
-                <div onClick={toggleMenu} className="cursor-pointer flex items-center gap-2">
-                  <img
-                    className="rounded-full h-8 w-8 object-cover border-2 border-blue-500 hover:border-blue-700 transition"
-                    src={currentUser.avatar}
-                    alt="profile"
-                  />
-                 
-                </div>
 
-                {menuOpen && (
-                  <div className="absolute right-0 mt-2 z-30 w-56 bg-white rounded-lg shadow-xl border animate-slide-down">
-                    <ul className="text-gray-700">
-                      <li className="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 transition">
-                        <FaUserEdit className="text-blue-500" />
-                        <Link to="/profile">Edit Profile</Link>
-                      </li>
-                      <li className="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 transition">
-                        <FaListAlt className="text-blue-500" />
-                        <Link to="/listing">My Listings</Link>
-                      </li>
-                      <li className="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 transition">
+          {currentUser ? (
+            <div className="relative">
+              <img
+                onClick={toggleMenu}
+                className="rounded-full h-8 w-8 object-cover cursor-pointer border-2 border-blue-500 hover:border-blue-700"
+                src={currentUser.avatar}
+                alt="profile"
+              />
+              {menuOpen && (
+                <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg z-50">
+                  <ul className="text-gray-700">
+                    <li className="px-4 py-2 hover:bg-gray-100 flex items-center gap-2">
+                      <FaUserEdit className="text-blue-500" />
+                      <Link to="/profile">Edit Profile</Link>
+                    </li>
+                    <li className="px-4 py-2 hover:bg-gray-100 flex items-center gap-2">
+                      <FaListAlt className="text-blue-500" />
+                      <Link to="/listing">My Listings</Link>
+                    </li>
+                    <li className="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 transition">
                         <FaInfoCircle className="text-blue-500" />
                         <Link to="/about">About</Link>
                       </li>
-                    
-                      <li className="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 transition">
-                        <FaSignOutAlt className="text-red-500" />
-                        <span onClick={handleSignOut} className="cursor-pointer">
-                          Sign Out
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                )}
-              </>
-            ) : (
-              <Link to="/sign-in">
-                <li className="text-gray-700 hover:underline">Sign in</li>
-              </Link>
-            )}
-          </div>
-        </ul>
+                    <li className="px-4 py-2 hover:bg-gray-100 flex items-center gap-2">
+                      <FaSignOutAlt className="text-red-500" />
+                      <span onClick={handleSignOut} className="cursor-pointer">
+                        Sign Out
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </div>
+          ) : (
+            <Link to="/sign-in" className="text-gray-700 hover:text-blue-500">
+              Sign In
+            </Link>
+          )}
+        </div>
+
+        {/* Mobile Navigation */}
+        <div className="md:hidden">
+          
+          {mobileMenuOpen && (
+            <div className="absolute top-16 left-0 w-full bg-white shadow-md rounded-b-lg">
+              <ul className="flex flex-col gap-4 p-4">
+                <Link to="/" className="text-gray-700 hover:text-blue-500">
+                  Home
+                </Link>
+                <Link to="/about" className="text-gray-700 hover:text-blue-500">
+                  About
+                </Link>
+                <Link to="/listing" className="text-gray-700 hover:text-blue-500">
+                  Listings
+                </Link>
+                <Link to="/create-listing">
+                  <button className="bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-blue-600 transition">
+                    Sell/Rent
+                  </button>
+                </Link>
+              </ul>
+            </div>
+          )}
+        </div>
       </div>
     </header>
   );
