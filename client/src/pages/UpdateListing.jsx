@@ -182,7 +182,7 @@ const handleRemoveImage = (index) => {
     }
   };
   return (
-    <main className='p-3 max-w-4xl mx-auto'>
+    <main className='p-3 mt-12 max-w-4xl mx-auto'>
       <h1 className='text-3xl font-semibold text-center my-7'>
         Update a Listing
       </h1>
