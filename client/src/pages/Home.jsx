@@ -8,9 +8,11 @@ import 'swiper/css/bundle';
 import ListingItem from '../components/ListingItem.jsx';
 import Header from '../components/Header.jsx';
 import background from '../assets/background.jpg';
+import about from '../assets/about3.jpg';
 import { FaUserFriends, FaHome } from "react-icons/fa";
-
+import { FiArrowRight } from "react-icons/fi";
 import yourGif from '../assets/gif2.gif';
+import { FaBuilding } from "react-icons/fa";
 export default function Home() {
   const [offerListings, setOfferListings] = useState([]);
   const [saleListings, setSaleListings] = useState([]);
@@ -215,38 +217,35 @@ const showcities = [
       </div>
 
       
-      <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-20 p-10 max-w-6xl mx-auto">
-  {/* Left Section - Text Content */}
-  <div className="flex-1 text-center lg:text-left">
-    <h2 className="text-slate-800 font-semibold text-2xl lg:text-6xl leading-tight">
-      Find your next <span className="text-blue-600">perfect</span>
-      <br />
-      place with ease
-    </h2>
-    <p className="text-gray-900 text-sm sm:text-base mt-4">
-      NKEstate is your trusted platform to discover your next dream home.
-      <br />
-      Browse through an extensive collection of properties tailored just for you.
-    </p>
-    <div className="mt-6">
-      <Link
-        to={'/search'}
-        className="text-sm sm:text-base text-blue-600 rounded-lg transition-all duration-300"
-      >
-        Let’s get started...
-      </Link>
+      <div className="relative py-20 bg-gradient-to-b from-white to-slate-50">
+    <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row justify-between items-center gap-16">
+      <div className="flex-1 space-y-6">
+        <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
+          Find your next <span className="text-cyan-600">perfect</span> place with ease
+        </h2>
+        <p className="text-lg text-slate-600 leading-relaxed">
+          NKEstate revolutionizes property discovery with intelligent matching and seamless browsing.
+          Experience real estate reimagined through our curated collection of exceptional properties.
+        </p>
+        <Link
+          to="/search"
+          className="inline-flex items-center text-cyan-600 hover:text-cyan-700 font-semibold group transition-colors"
+        >
+          Let's get started
+          <FiArrowRight className="ml-2 transform group-hover:translate-x-1 transition-transform" />
+        </Link>
+      </div>
+      <div className="flex-1">
+        <img
+          src={yourGif}
+          alt="Property visualization"
+          className="w-full max-w-xl rounded-2xl   transform hover:scale-[1.02] transition-transform"
+        />
+      </div>
     </div>
   </div>
+    
 
-  {/* Right Section - GIF */}
-  <div className="flex-1 flex justify-center lg:justify-end">
-    <img
-      src={yourGif} // Replace `yourGif` with the imported GIF variable
-      alt="Real Estate GIF"
-      className="w-auto max-w-lg mx-auto lg:ml-9 rounded-lg shadow-sm"
-    />
-  </div>
-</div>
 
 
 
@@ -348,45 +347,68 @@ const showcities = [
     </div>
   )}
 </div>
-<div className="max-w-7xl mx-auto px-6 py-12">
+
+
+<div className="bg-white p-10 ">
       {/* Title */}
-      <h2 className="text-4xl font-extrabold text-slate-800 text-center mb-8">
-        About Us
-      </h2>
-
-      {/* Description */}
-      <div className="text-center max-w-3xl mx-auto mb-12">
-        <p className="text-gray-600 leading-relaxed text-lg">
-          <span className="font-medium text-slate-800">NKEstate</span> is dedicated to helping you find your perfect home. With an extensive network of properties across cities, we bring you closer to your dream residence. Whether you're looking for luxury, affordability, or a cozy space, we have something for everyone. Trust us to make your property search seamless and enjoyable.
+  
+      <h2 className="text-3xl md:text-4xl  flex justify-center font-extrabold text-slate-800">
+          <span className="text-black">About</span> <span className="text-blue-600">Our Brand</span>
+        </h2>
+        <p className="text-gray-500 flex justify-center mt-2">
+          Passionate About Properties, Dedicated to Your Vision
         </p>
+        
+      {/* Description */}
+      <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center gap-12">
+      {/* Left: Image */}
+      <div className="w-full  md:w-1/3 relative">
+        <img
+          src={about}
+          alt="Modern Building"
+          className="w-full h-80 md:h-[430px] rounded-tl-[70%] rounded-tr-[5%] shadow-lg"
+        />
       </div>
 
-      {/* Stats Section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
-        {/* Number of Users */}
-        <div className="flex flex-col items-center">
-          <div className="bg-blue-100 text-blue-600 p-6 rounded-full shadow-lg relative">
-            <FaUserFriends size={50} />
-            <div className="absolute -top-3 -right-3 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded-full shadow">
-              New
-            </div>
+      {/* Right: Content */}
+      <div className="w-full md:ml-24 md:w-1/2 text-center md:text-left">
+     
+
+        {/* Stats Grid */}
+        <div className="grid grid-cols-2 gap-6 mt-6">
+          <div>
+            <h3 className="text-3xl font-bold text-slate-800">10+</h3>
+            <p className="text-gray-500">Years of Excellence</p>
           </div>
-          <h3 className="text-3xl font-bold text-slate-800 mt-4">50K+</h3>
-          <p className="text-gray-600 text-lg">Happy Users</p>
+          <div>
+            <h3 className="text-3xl font-bold text-slate-800">12+</h3>
+            <p className="text-gray-500">Projects Completed</p>
+          </div>
+          <div>
+            <h3 className="text-3xl font-bold text-slate-800">20M+</h3>
+            <p className="text-gray-500">Sq. Ft. Delivered</p>
+          </div>
+          <div>
+            <h3 className="text-3xl font-bold text-slate-800">25+</h3>
+            <p className="text-gray-500">Ongoing Projects</p>
+          </div>
         </div>
 
-        {/* Number of Properties */}
-        <div className="flex flex-col items-center">
-          <div className="bg-green-100 text-green-600 p-6 rounded-full shadow-lg relative">
-            <FaHome size={50} />
-            <div className="absolute -top-3 -right-3 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded-full shadow">
-              Popular
-            </div>
-          </div>
-          <h3 className="text-3xl font-bold text-slate-800 mt-4">10K+</h3>
-          <p className="text-gray-600 text-lg">Properties Listed</p>
-        </div>
+        {/* Description */}
+        <p className="text-gray-600 mt-6 leading-relaxed">
+          Lorem ipsum is simply dummy text of the printing and typesetting industry.
+          Lorem Ipsum has been the industry’s standard dummy text since the 1500s.
+        </p>
+
+        {/* CTA Button */}
+        <a
+          href="/about"
+          className="inline-block mt-6 px-6 py-3 text-white bg-blue-600 hover:bg-blue-700 rounded-lg shadow-md"
+        >
+          Learn More
+        </a>
       </div>
+    </div>
     </div>
 
     {/* Footer */}
