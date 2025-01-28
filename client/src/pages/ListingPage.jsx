@@ -58,13 +58,13 @@ export default function Listing() {
   }, [params.listingId]);
 
   return (
-    <main className="bg-gray-50 min-h-screen">
+    <main className="bg-gray-50 min-h-screen mt-16">
       {loading && <p className='text-center my-7 text-2xl text-gray-700 font-medium'>Loading...</p>}
       {error && (
         <p className='text-center my-7 text-2xl text-red-600 font-medium'>Something went wrong!</p>
       )}
       {listing && !loading && !error && (
-        <div className="container mx-auto px-6 py-10 md:py-0 md:m-3">
+        <div className="container mx-auto px-6 py-4 md:py-9  md:m-3">
           <div className="relative">
             <Swiper navigation loop autoplay={{ delay: 4000 }} className="rounded-lg shadow-xl">
               {listing.imageUrls.map((url) => (
@@ -128,7 +128,7 @@ export default function Listing() {
 
   {/* Pricing */}
   <p className="text-3xl text-gray-900 font-bold mt-6">
-    ${' '}
+  ₹{' '}
     {listing.offer
       ? listing.discountPrice.toLocaleString('en-US')
       : listing.regularPrice.toLocaleString('en-US')}
