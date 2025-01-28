@@ -46,11 +46,11 @@ export default function Header() {
   }, [menuOpen]);
 
   return (
-    <header className="bg-slate-500  backdrop-blur-6xl shadow-md shadow-sky-100 md:rounded-lg md:m-4 md:ml-8 md:mr-8">
+    <header className="bg-sky-100  backdrop-blur-6xl shadow-md shadow-sky-100 md:rounded-lg md:m-4 md:ml-8 md:mr-8">
       <div className="flex justify-between items-center max-w-6xl mx-auto md:p-3 p-3">
         <Link to="/">
           <h1 className='font-bold text-2xl flex flex-wrap'>
-            <span className='text-white'>NK</span>
+            <span className='text-blue-700'>NK</span>
             <span className='text-slate-700'>Estate</span>
           </h1>
         </Link>
@@ -58,19 +58,19 @@ export default function Header() {
 
         <ul className="flex gap-6 items-center">
           <Link to="/">
-            <li className="hidden sm:inline text-white relative group">
+            <li className="hidden sm:inline text-black relative group">
               <span className="group-hover:text-blue-500 transition-colors">Home</span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
             </li>
           </Link>
           <Link to="/about">
-            <li className="hidden sm:inline text-white relative group">
+            <li className="hidden sm:inline text-black relative group">
               <span className="group-hover:text-blue-500 transition-colors">About</span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
             </li>
           </Link>
           <Link to="/listing">
-            <li className="hidden sm:inline text-white relative group">
+            <li className="hidden sm:inline text-black relative group">
               <span className="group-hover:text-blue-500 transition-colors">Listings</span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
             </li>
@@ -110,10 +110,7 @@ export default function Header() {
                         <FaInfoCircle className="text-blue-500" />
                         <Link to="/about">About</Link>
                       </li>
-                      <li className="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 transition">
-                        <FaPhone className="text-blue-500" />
-                        <Link to="/contact">Contact</Link>
-                      </li>
+                    
                       <li className="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 transition">
                         <FaSignOutAlt className="text-red-500" />
                         <span onClick={handleSignOut} className="cursor-pointer">
