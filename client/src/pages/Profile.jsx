@@ -12,8 +12,8 @@ import {
 } from '../redux/user/userSlice';
 import { Link } from "react-router-dom";
 
-
-
+import { CiEdit } from "react-icons/ci";
+import { FaUserEdit } from "react-icons/fa";
 export default function Profile() {
   const fileRef = useRef(null);
   
@@ -166,9 +166,14 @@ export default function Profile() {
 
 
   return (
-    <div className="p-3 max-w-lg mx-auto">
+    <div className="p-20 max-w-3xl mx-auto">
       <h1 className="text-3xl font-semibold text-center my-7">Profile</h1>
+      
+      <p className="text-center text-blue-500 italic  mb-8 m">
+      Welcome to your profile! Keep your details updated to stay ahead.
+      </p>
       <form className="flex flex-col gap-4" onSubmit={handleUpdate}>
+      <div className="relative self-center w-28 h-28">
         <input
           type="file"
           ref={fileRef}
@@ -181,11 +186,18 @@ export default function Profile() {
           onClick={() => fileRef.current.click()}
           src={uploadedImage || currentUser.avatar}
           alt="profile"
-          className="rounded-full h-24 w-24 object-cover cursor-pointer self-center mt-2"
+          className="rounded-full w-28 h-28 object-cover cursor-pointer border-[2px] border-blue-500 shadow-lg shadow-blue-300"
         />
+         <div
+            className="absolute bottom-3 right-3  bg-black p-1  rounded-full cursor-pointer"
+            onClick={() => fileRef.current.click()}
+          >
+            <CiEdit className="text-white text-5xl " size={20} />
+          </div>
 
+          </div>
         {uploadProgress > 0 && uploadProgress < 100 && (
-          <div className="text-sm text-blue-500 text-center mt-2">
+          <div className="text-sm text-white text-center mt-2">
             Uploading: {uploadProgress}%
           </div>
         )}
