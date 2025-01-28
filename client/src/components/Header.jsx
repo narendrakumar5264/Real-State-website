@@ -46,8 +46,8 @@ export default function Header() {
   }, [menuOpen]);
 
   return (
-    <header className="bg-sky-100  backdrop-blur-6xl shadow-md shadow-sky-100 md:rounded-lg md:m-4 md:ml-8 md:mr-8">
-      <div className="flex justify-between items-center max-w-6xl mx-auto md:p-3 p-3">
+    <header className="bg-white shadow-md fixed top-0 left-0 w-full z-50">
+      <div className="container mx-auto px-8 py-3 flex justify-between items-center">
         <Link to="/">
           <h1 className='font-bold text-2xl flex flex-wrap'>
             <span className='text-blue-700'>NK</span>
@@ -56,26 +56,17 @@ export default function Header() {
         </Link>
 
 
-        <ul className="flex gap-6 items-center">
-          <Link to="/">
-            <li className="hidden sm:inline text-black relative group">
-              <span className="group-hover:text-blue-500 transition-colors">Home</span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
-            </li>
+        <nav className="hidden md:flex items-center gap-10">
+          <Link to="/" className="text-gray-700 hover:text-blue-500 transition">
+            Home
           </Link>
-          <Link to="/about">
-            <li className="hidden sm:inline text-black relative group">
-              <span className="group-hover:text-blue-500 transition-colors">About</span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
-            </li>
+          <Link to="/about" className="text-gray-700 hover:text-blue-500 transition">
+            About
           </Link>
-          <Link to="/listing">
-            <li className="hidden sm:inline text-black relative group">
-              <span className="group-hover:text-blue-500 transition-colors">Listings</span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
-            </li>
+          <Link to="/listing" className="text-gray-700 hover:text-blue-500 transition">
+            Listings
           </Link>
-        </ul>
+        </nav>
 
         <ul className="flex gap-4 md:gap-8 items-center ">
           <Link to='/create-listing'>
