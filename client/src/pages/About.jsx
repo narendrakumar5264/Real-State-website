@@ -6,11 +6,11 @@ export default function About() {
     <div className="py-20 px-6 max-w-6xl mx-auto">
       {/* Hero Section */}
       <div className=" bg-slate-800 text-white text-center py-12 rounded-2xl shadow-lg mb-10">
-        <h1 className="text-5xl font-bold mb-4 animate-fade-in">
-          About <span className="text-yellow-300">Narendra Kumar</span>
+        <h1 className="text-4xl font-bold mb-4 animate-fade-in">
+          About <span className="text-yellow-300">Me</span>
         </h1>
         <p className="text-xl animate-fade-in-delayed">
-          A passionate Full Stack Developer with expertise in building intuitive, responsive, and scalable applications.
+          A passionate Full Stack Developer 
         </p>
       </div>
 
@@ -29,7 +29,7 @@ export default function About() {
       </div>
 
       {/* Contact Section */}
-      <div className="mb-12 bg-slate-100 p-6 sm:p-8 rounded-xl shadow-md">
+      
   <h2 className="text-2xl font-semibold text-slate-800 mb-6 text-center">
     Contact Information
   </h2>
@@ -37,7 +37,7 @@ export default function About() {
     {/* Phone Contact */}
     <a
       href="tel:9875709813"
-      className="flex items-center space-x-3 bg-white p-4 rounded-lg shadow hover:shadow-md transition-all duration-300 hover:bg-blue-50 w-full max-w-xs"
+      className="flex items-center space-x-3  p-4 rounded-lg shadow hover:shadow-md transition-all duration-300 hover:bg-blue-50 w-full max-w-xs"
     >
       <FaPhone className="text-blue-600 text-3xl" />
       <span className="text-slate-800 font-medium">9875709813</span>
@@ -45,29 +45,30 @@ export default function About() {
     {/* Email Contact */}
     <a
       href="mailto:jangidnarendra858@gmail.com"
-      className="flex items-center space-x-3 bg-white p-4 rounded-lg shadow hover:shadow-md transition-all duration-300 hover:bg-blue-50 w-full max-w-xs"
+      className="flex items-center space-x-3  p-4 rounded-lg shadow hover:shadow-md transition-all duration-300 hover:bg-blue-50 w-full max-w-xs"
     >
       <FaEnvelope className="text-blue-600 text-3xl" />
       <span className="text-slate-800 font-medium">jangidnarendra858@gmail.com</span>
     </a>
   </div>
-</div>
 
+<br />
+<br />
 
       {/* Social Media Links */}
       <div className="mb-12 text-center">
         <h2 className="text-2xl font-semibold text-slate-800 mb-4">Connect with Me</h2>
         <div className="flex justify-center space-x-6 text-blue-600">
-          <a href="https://www.instagram.com/username" target="_blank" rel="noopener noreferrer" className="text-3xl hover:text-blue-800">
+          <a href="https://www.instagram.com/narendrajangid2022/" target="_blank" rel="noopener noreferrer" className="text-3xl hover:text-blue-800">
             <FaInstagram />
           </a>
-          <a href="https://www.linkedin.com/in/username" target="_blank" rel="noopener noreferrer" className="text-3xl hover:text-blue-800">
+          <a href="https://www.linkedin.com/in/narendra-kumar-9b2223257/" target="_blank" rel="noopener noreferrer" className="text-3xl hover:text-blue-800">
             <FaLinkedin />
           </a>
-          <a href="https://github.com/username" target="_blank" rel="noopener noreferrer" className="text-3xl hover:text-blue-800">
+          <a href="https://github.com/narendrakumar5264" target="_blank" rel="noopener noreferrer" className="text-3xl hover:text-blue-800">
             <FaGithub />
           </a>
-          <a href="https://twitter.com/username" target="_blank" rel="noopener noreferrer" className="text-3xl hover:text-blue-800">
+          <a href="https://x.com/JangifNarendra" target="_blank" rel="noopener noreferrer" className="text-3xl hover:text-blue-800">
             <FaTwitter />
           </a>
         </div>
