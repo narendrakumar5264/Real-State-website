@@ -297,9 +297,9 @@ const showcities = [
       <div className='max-w-7xl md:mx-16 p-1 flex flex-col gap-8 my-10 md:grid ml-5'>
   {offerListings && offerListings.length > 0 && (
     <div className=''>
-      <div className='my-3'>
-        <h2 className='text-2xl font-semibold text-slate-600'>Recent offers</h2>
-        <Link className='text-sm text-blue-800 hover:underline' to={'/search?offer=true'}>
+      <div className='my-3 '>
+        <h2 className='text-2xl  font-semibold text-slate-600'>Explore Our Recent Offers </h2>
+        <Link className='text-sm  text-blue-800 hover:underline' to={'/search?offer=true'}>
           Show more offers
         </Link>
       </div>
@@ -312,8 +312,10 @@ const showcities = [
       </div>
     </div>
   )}
+  </div>
+  <div className='max-w-1xl  md:mx-0 p-2 flex flex-col gap-8  md:grid ml-0 bg-white'>
   {rentListings && rentListings.length > 0 && (
-    <div className=''>
+    <div className='mx-5 md:mx-16 my-10 '>
       <div className='my-3'>
         <h2 className='text-2xl font-semibold text-slate-600'>Recent places for rent</h2>
         <Link className='text-sm text-blue-800 hover:underline' to={'/search?type=rent'}>
@@ -329,9 +331,12 @@ const showcities = [
       </div>
     </div>
   )}
+  </div>
+
+<div className='max-w-1xl  md:mx-0 p-2 flex flex-col gap-8  md:grid ml-0 bg-gray-200'>
   {saleListings && saleListings.length > 0 && (
-    <div className=''>
-      <div className='my-3'>
+    <div className=' mx-5 md:mx-16 my-10'>
+      <div className=''>
         <h2 className='text-2xl font-semibold text-slate-600'>Recent places for sale</h2>
         <Link className='text-sm text-blue-800 hover:underline' to={'/search?type=sale'}>
           Show more places for sale
@@ -346,10 +351,11 @@ const showcities = [
       </div>
     </div>
   )}
-</div>
+  </div>
 
 
-<div className="bg-white p-10 ">
+
+<div className="bg-white p-10 mt-0">
       {/* Title */}
   
       <h2 className="text-3xl md:text-4xl  flex justify-center font-extrabold text-slate-800">
@@ -396,8 +402,7 @@ const showcities = [
 
         {/* Description */}
         <p className="text-gray-600 mt-6 leading-relaxed">
-          Lorem ipsum is simply dummy text of the printing and typesetting industry.
-          Lorem Ipsum has been the industry’s standard dummy text since the 1500s.
+          <span className="font-medium text-slate-800">NKEstate</span> is dedicated to helping you find your perfect home. With an extensive network of properties across cities
         </p>
 
         {/* CTA Button */}
