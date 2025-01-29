@@ -11,6 +11,7 @@ import Listing from './pages/Listing';
 import UpdateListing from './pages/UpdateListing';
 import ListingPage from './pages/ListingPage';
 import Search from './pages/Search';
+import ScrollToTop from './components/ScrollToTop';
 function AppContent() {
   const location = useLocation(); // Now it's inside BrowserRouter's context
 
@@ -18,7 +19,7 @@ function AppContent() {
     <div>
       {/* Show Header only if the current path is not "/" */}
       {location.pathname !== '/' && <Header />}
-
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/sign-in" element={<SignIn />} />
