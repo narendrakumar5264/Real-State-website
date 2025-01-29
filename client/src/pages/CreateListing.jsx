@@ -36,7 +36,7 @@ export default function CreateListing() {
   const [uploadStatus, setUploadStatus] = useState("");
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
-
+  const [isUploading, setIsUploading] = useState(false);
   const rajasthanCities = [
     "Jaipur",
     "Jodhpur",
@@ -71,6 +71,7 @@ export default function CreateListing() {
   };
 
   const handleUploadClick = async () => {
+    setIsUploading(true);
     if (files.length === 0) {
       setUploadStatus("No files selected for upload.");
       return;
@@ -84,6 +85,7 @@ export default function CreateListing() {
         ...prevFormData,
         imageUrls,
       }));
+      setIsUploading(false);
       setUploadStatus("All images uploaded successfully!");
     } catch (error) {
       console.error("Error uploading images:", error);
@@ -432,13 +434,14 @@ export default function CreateListing() {
                     onChange={handleFileChange}
                     multiple
                   />
-                  <button
-                    type="button"
-                    onClick={handleUploadClick}
-                    className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
-                  >
-                    Upload
-                  </button>
+               <button
+      type="button"
+      onClick={handleUploadClick}
+      className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
+      disabled={isUploading}
+    >
+      {isUploading ? "Uploading..." : "Upload"}
+    </button>
                 </div>
                 {uploadStatus && (
                   <p
