@@ -257,28 +257,41 @@ const showcities = [
         <h2 className="text-4xl font-bold text-center text-slate-800 mb-10">
           Discover Stunning Properties Across Cities
         </h2>
+      
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8 h-8/10 md:h-full">
+       
           {showcities.slice(0, visibleCities).map((city, index) => (
+              <Link to={`/search?city=${city.name}`}>
             <div
               key={index}
               className="relative group
                overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
-            >
-              <img
-                src={city.image}
-                alt={city.name}
-                className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
-              />
+            >  
+                   
+  <img
+    src={city.image}
+    alt={city.name}
+    className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+  />
+
+
               <div className="absolute inset-0 bg-gradient-to-t from-black   flex items-end p-4">
-              
+             
+        
                 <h3 className="text-white text-xl font-semibold">
+               
                 <h4 className='text-sm'> {city.properties}+ properties  </h4> 
                   {city.name}
                 </h3>
+               
+            
               </div>
             </div>
+             </Link>
           ))}
+           
         </div>
+       
         <div className="text-center mt-8">
           <button
             onClick={handleShowMore}
