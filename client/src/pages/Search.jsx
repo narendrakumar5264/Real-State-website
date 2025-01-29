@@ -223,7 +223,7 @@ export default function Search() {
           </div  >
 
 
-          <div className='bg-slate-300 mt-0'>
+          <div className=' mt-0'>
           <h1 className="text-2xl md:text-4xl font-bold border-b-4 border-gray-300 p-2
            text-gray-800 mt-2 shadow-sm">
   Properties in  <span className="text-blue-600">{sidebardata.city}</span> :
