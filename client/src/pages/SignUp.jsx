@@ -49,38 +49,38 @@ export default function SignUp() {
   };
 
   return (
-    <div className='p-8 max-w-lg mx-auto border rounded-xl shadow-2xl my-10 bg-gradient-to-br from-teal-500 to-cyan-500 text-white'>
-      <h1 className='text-5xl text-center font-extrabold mb-8'>Sign Up</h1>
-      <p className='text-center text-lg mb-6'>Create your account to get started.</p>
-      <form onSubmit={handleSubmit} className='flex flex-col gap-6'>
-        <div className="flex items-center bg-white text-gray-700 border-2 border-gray-200 p-4 rounded-xl shadow-lg">
-          <FaUser className="text-teal-500 mr-4" />
+    <div className='p-8 max-w-lg mx-auto mt-[120px] border rounded-xl shadow-xl my-10 bg-white text-gray-800'>
+      <h1 className='text-4xl text-center font-bold mb-6 text-gray-900'>Sign Up</h1>
+      <p className='text-center text-lg mb-6 text-gray-600'>Create your account to get started.</p>
+      <form onSubmit={handleSubmit} className='flex flex-col gap-5'>
+        <div className="flex items-center bg-gray-100 text-gray-700 border border-gray-300 p-4 rounded-lg shadow-sm focus-within:border-teal-500">
+          <FaUser className="text-teal-500 mr-3" />
           <input
             type="text"
             placeholder="Username"
-            className="w-full outline-none bg-transparent text-gray-800 placeholder-gray-400"
+            className="w-full outline-none bg-transparent text-gray-700 placeholder-gray-400"
             id="username"
             onChange={handleChange}
           />
         </div>
 
-        <div className="flex items-center bg-white text-gray-700 border-2 border-gray-200 p-4 rounded-xl shadow-lg">
-          <FaEnvelope className="text-teal-500 mr-4" />
+        <div className="flex items-center bg-gray-100 text-gray-700 border border-gray-300 p-4 rounded-lg shadow-sm focus-within:border-teal-500">
+          <FaEnvelope className="text-teal-500 mr-3" />
           <input
             type="email"
             placeholder="Email"
-            className="w-full outline-none bg-transparent text-gray-800 placeholder-gray-400"
+            className="w-full outline-none bg-transparent text-gray-700 placeholder-gray-400"
             id="email"
             onChange={handleChange}
           />
         </div>
 
-        <div className="flex items-center bg-white text-gray-700 border-2 border-gray-200 p-4 rounded-xl shadow-lg">
-          <FaLock className="text-teal-500 mr-4" />
+        <div className="flex items-center bg-gray-100 text-gray-700 border border-gray-300 p-4 rounded-lg shadow-sm focus-within:border-teal-500">
+          <FaLock className="text-teal-500 mr-3" />
           <input
             type="password"
             placeholder="Password"
-            className="w-full outline-none bg-transparent text-gray-800 placeholder-gray-400"
+            className="w-full outline-none bg-transparent text-gray-700 placeholder-gray-400"
             id="password"
             onChange={handleChange}
           />
@@ -93,26 +93,27 @@ export default function SignUp() {
             className="mr-2"
             onChange={(e) => setTermsAccepted(e.target.checked)}
           />
-          <label htmlFor="terms" className="text-gray-200 text-sm">
-            I accept the <span className="text-yellow-300">Terms and Conditions</span>
+          <label htmlFor="terms" className="text-gray-600 text-sm">
+            I accept the <span className="text-teal-600">Terms and Conditions</span>
           </label>
         </div>
 
         <button
           disabled={loading}
-          className='bg-teal-600 hover:bg-teal-700 text-white py-3 rounded-xl uppercase font-bold transition-all duration-300 ease-in-out disabled:opacity-70 shadow-md'
+          className='bg-teal-600 hover:bg-teal-700 text-white py-3 rounded-lg uppercase font-semibold transition-all duration-300 ease-in-out disabled:opacity-60 shadow-md'
         >
           {loading ? 'Creating Account...' : 'Sign Up'}
         </button>
         <OAuth />
+        Welcome email on its way! Check spam if you don't see it
       </form>
       <div className='flex flex-col items-center gap-2 mt-6'>
-        <p className='text-gray-200'>Already have an account?</p>
+        <p className='text-gray-600'>Already have an account?</p>
         <Link to={'/sign-in'}>
-          <span className='text-yellow-300 hover:underline font-medium'>Sign in here</span>
+          <span className='text-teal-600 hover:text-teal-700 hover:underline font-medium'>Sign in here</span>
         </Link>
       </div>
-      {error && <p className='text-red-300 mt-5 text-center font-semibold'>{error}</p>}
+      {error && <p className='text-red-500 mt-5 text-center font-semibold'>{error}</p>}
     </div>
   );
 }
