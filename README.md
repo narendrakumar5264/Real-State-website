@@ -1,6 +1,6 @@
  # Real Estate Website 🏡
 
-![Real Estate Banner](https://via.placeholder.com/1200x400.png?text=Real+Estate+Website)
+![Real Estate Banner](https://github.com/narendrakumar5264/Real-State-website/blob/master/nkstate.jpg)
 
 ## 📌 Overview
 A fully functional full-stack real estate website built using **React.js, Node.js, Express.js, and MongoDB**. This platform allows users to browse property listings, filter based on preferences, and contact sellers. It also includes authentication, a dashboard, and a seamless user experience.
